@@ -11,7 +11,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupTabs()
         // Do any additional setup after loading the view.
         
     }
@@ -21,6 +21,13 @@ class TabBarViewController: UITabBarController {
         let SeacrhVC = SearchViewController()
         let FavoriteVC = FavoriteViewController()
         let ProfileVC = ProfileViewController()
+        
+        HomeVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Home"), selectedImage: UIImage(named: "HomeEnabled"))
+        SeacrhVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Search"), selectedImage: UIImage(named: "SearchEnabled"))
+        FavoriteVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Favorite"), selectedImage: UIImage(named: "FavoriteEnabled"))
+        ProfileVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Profile"), selectedImage: UIImage(named: "ProfileEnabled"))
+        
+        setViewControllers([HomeVC, SeacrhVC, FavoriteVC, ProfileVC], animated: true)
     }
 
     /*
