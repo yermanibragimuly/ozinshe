@@ -12,8 +12,6 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
-        // Do any additional setup after loading the view.
-        
     }
     
     func setupTabs() {
