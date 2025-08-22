@@ -15,14 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        label.text = "Yerman"
-        label.textColor = .black
-        view.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            
-        }
+        
     }
         
 
