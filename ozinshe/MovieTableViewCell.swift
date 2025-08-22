@@ -25,7 +25,7 @@ class MovieTableViewCell: UITableViewCell {
         let label = UILabel()
         
         label.text = "Қызғалдақтар мекені"
-        label.font = UIFont(name: "SF-Pro-Display-Bold", size: 12)
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         label.textColor = UIColor(named: "111827")
         
         return label
@@ -35,7 +35,7 @@ class MovieTableViewCell: UITableViewCell {
         let label = UILabel()
         
         label.text = "2020 • Телехикая • Мультфильм"
-        label.font = UIFont(name: "SF-Pro-Display-Regular", size: 8)
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
         label.textColor = UIColor(named: "9CA3AF")
         
         return label
@@ -49,7 +49,7 @@ class MovieTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor(named: "F8EEFF")
         view.layer.cornerRadius = 8
         label.text = "Қарау"
-        label.font = UIFont(name: "SF-Pro-Display-Regular", size: 12)
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
         label.textColor = UIColor(named: "9753F0")
         
         view.addSubview(imageView)
