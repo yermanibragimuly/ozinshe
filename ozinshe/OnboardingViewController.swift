@@ -8,7 +8,15 @@
 import UIKit
 import SnapKit
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
     
     var arraySlides = [["firstSlides", "ÖZINŞE-ге қош келдің!", "Фильмдер, телехикаялар, ситкомдар, анимациялық жобалар, телебағдарламалар мен реалити-шоулар, аниме және тағы басқалары"], ["secondSlides", "ÖZINŞE-ге қош келдің!", "Кез келген құрылғыдан қара Сүйікті фильміңді  қосымша төлемсіз телефоннан, планшеттен, ноутбуктан қара"], ["thirdSlides", "ÖZINŞE-ге қош келдің!", "Тіркелу оңай. Қазір тіркел де қалаған фильміңе қол жеткіз"]]
     
@@ -56,7 +64,7 @@ class OnboardingViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = ""
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -64,15 +72,24 @@ class OnboardingViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func nextButtonTouched() {
+        let singInViewController = SignInViewController()
+        navigationController?.pushViewController(singInViewController, animated: true)
     }
-    */
-
+    
+    func setupUI() {
+        view.backgroundColor = UIColor(named: "111827")
+        
+        view.addSubview(collectionView)
+        view.addSubview(pageControl())
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+        }
+        
+        pageControl().snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(654)
+            make.centerX.equalToSuperview()
+        }
+    }
 }
