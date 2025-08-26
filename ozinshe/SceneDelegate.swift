@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     window?.rootViewController = UINavigationController(rootViewController: FavoriteViewController())
                 } else {
                     // Первый запуск → показываем onboarding
-                    window?.rootViewController = UINavigationController(rootViewController: SignUpViewController())
+                    window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
                 }
                 
                 window?.makeKeyAndVisible()
