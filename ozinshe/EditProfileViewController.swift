@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class EditProfileViewController: UIViewController {
+    
     let identifier = "EditProfileViewController"
     
     lazy var editProfileLabel = {
@@ -138,14 +139,30 @@ class EditProfileViewController: UIViewController {
         return button
     }()
     
-    
+    private lazy var backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "backBtn"), for: .normal)
+        button.tintColor = UIColor(named: "111827")
+        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-        navigationController?.navigationBar.tintColor = .black
    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     
     func setupUI() {
         view.addSubview(editProfileLabel)
@@ -163,21 +180,29 @@ class EditProfileViewController: UIViewController {
         view.addSubview(bottomView4)
         view.addSubview(bottomView5)
         view.addSubview(saveButtonPersonalInfo)
+        view.addSubview(backButton)
+        
+        
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalToSuperview().offset(24)
+            make.width.height.equalTo(40)
+        }
         
         editProfileLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
+            make.centerY.equalTo(backButton)
             make.centerX.equalToSuperview()
         }
         
         bottomView.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.horizontalEdges.equalToSuperview().inset(0)
-            make.top.equalTo(editProfileLabel.snp.bottom).offset(19)
+            make.top.equalTo(backButton.snp.bottom).offset(8)
         }
         
         nameTitleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(24)
             make.top.equalTo(bottomView.snp.bottom).offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
         nameValueLabel.snp.makeConstraints { make in
@@ -240,16 +265,16 @@ class EditProfileViewController: UIViewController {
         }
         
         saveButtonPersonalInfo.snp.makeConstraints { make in
-            make.top.equalTo(bottomView5.snp.bottom).offset(250)
-            make.bottom.equalToSuperview().offset(-42)
+            make.bottom.equalTo(view.safeAreaInsets).offset(-42)
             make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(56)
-            make.width.equalTo(327)
         }
         
-    
     }
     
+    @objc private func backTapped() {
+        navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 
