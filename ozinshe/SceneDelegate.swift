@@ -18,17 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
-                
-                if hasSeenOnboarding {
-                    // Уже видел onboarding → показываем главный экран
-                    window?.rootViewController = UINavigationController(rootViewController: FavoriteViewController())
-                } else {
-                    // Первый запуск → показываем onboarding
-                    window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
-                }
-                
-                window?.makeKeyAndVisible()
+        window?.rootViewController = TabBarViewController()
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
