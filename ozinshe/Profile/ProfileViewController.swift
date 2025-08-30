@@ -334,7 +334,7 @@ class ProfileViewController: UIViewController {
         let languageSelectionViewController = LanguageSelectionViewController()
         
         if let sheet = languageSelectionViewController.sheetPresentationController {
-                sheet.detents = [.medium()]
+            sheet.detents = [.medium()]
                 sheet.prefersGrabberVisible = true
             }
         
