@@ -6,17 +6,32 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController {
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var imageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "logoForHome")
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        setupUI()
         // Do any additional setup after loading the view.
     }
     
-
+    func setupUI() {
+        
+    }
     /*
     // MARK: - Navigation
 
