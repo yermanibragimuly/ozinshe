@@ -10,8 +10,6 @@ import SnapKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    let separator1 = UIView.separator()
-    
     lazy var posterImageView = {
         let imageView = UIImageView()
         
@@ -93,12 +91,6 @@ class MovieTableViewCell: UITableViewCell {
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(playView)
         contentView.addSubview(bottomView)
-        contentView.addSubview(separator1)
-        
-        separator1.snp.makeConstraints { make in
-            make.top.equalTo(contentView.safeAreaLayoutGuide)
-            make.horizontalEdges.equalToSuperview().inset(0)
-        }
         
         posterImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(24)
@@ -127,8 +119,7 @@ class MovieTableViewCell: UITableViewCell {
         
         bottomView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.left.equalToSuperview().inset(24)
-            make.right.equalToSuperview().inset(24)
+            make.horizontalEdges.equalToSuperview().inset(24)
             make.bottom.equalToSuperview().inset(0)
         }
     }

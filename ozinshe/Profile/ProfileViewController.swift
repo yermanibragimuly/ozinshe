@@ -313,6 +313,13 @@ class ProfileViewController: UIViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let targetSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        preferredContentSize = CGSize(width: view.bounds.width, height: targetSize.height)
+    }
+
+    
     @objc private func notificationToggleSwitchTapped(_ sender: UISwitch) {
             if sender.isOn {
             } else {
@@ -346,10 +353,21 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func logoutButtonTapped() {
-        print("Logout Tapped")
+        let exitViewController = ExitViewController()
+        
+        exitViewController.view.layer.cornerRadius = 32
+            exitViewController.view.layer.masksToBounds = true
+            
+            if let sheet = exitViewController.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+            }
+            
+            present(exitViewController, animated: true)
     }
     
     @objc func changePasswordButtonTapped() {
-        print("Пароль меняю")
+        let changePasswordViewController = ChangePasswordViewController()
+        navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
 }

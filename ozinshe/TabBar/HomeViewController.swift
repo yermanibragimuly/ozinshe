@@ -14,23 +14,24 @@ class HomeViewController: UIViewController {
         let view = UIView()
         return view
     }()
-    
-    lazy var imageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "logoForHome")
-        return imageView
-    }()
+        
+    func logoImageView() {
+        let image = UIImage(named: "logoForHome")
+        let logoImageVIew = UIImageView(image: image)
+        let imageItem = UIBarButtonItem(customView: logoImageVIew)
+        navigationItem.leftBarButtonItem = imageItem
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        logoImageView()
         setupUI()
         // Do any additional setup after loading the view.
     }
     
     func setupUI() {
-        
+        view.addSubview(contentView)
     }
     /*
     // MARK: - Navigation
@@ -43,3 +44,4 @@ class HomeViewController: UIViewController {
     */
 
 }
+
