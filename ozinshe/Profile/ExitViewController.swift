@@ -63,7 +63,7 @@ class ExitViewController: UIViewController {
         
         exitLabel.snp.makeConstraints { make in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.top.equalToSuperview().offset(58)
         }
         
         subExitLabel.snp.makeConstraints { make in
@@ -79,7 +79,6 @@ class ExitViewController: UIViewController {
         
         closeButton.snp.makeConstraints { make in
             make.top.equalTo(exitButton.snp.bottom).offset(8)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-24)
             make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(56)
         }

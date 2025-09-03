@@ -59,7 +59,7 @@ class LanguageSelectionViewController: UIViewController {
         
         languageLabel.snp.makeConstraints { make in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.top.equalToSuperview().offset(58)
         }
         
         englishLabel.snp.makeConstraints { make in

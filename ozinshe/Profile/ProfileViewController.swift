@@ -340,8 +340,13 @@ class ProfileViewController: UIViewController {
     @objc func chooseLanguageButtonTapped() {
         let languageSelectionViewController = LanguageSelectionViewController()
         
+        languageSelectionViewController.view.layer.cornerRadius = 32
+        languageSelectionViewController.view.layer.masksToBounds = true
+        
         if let sheet = languageSelectionViewController.sheetPresentationController {
-            sheet.detents = [.medium()]
+            sheet.detents = [
+                .custom { _ in 303 }
+            ]
                 sheet.prefersGrabberVisible = true
             }
         
@@ -359,7 +364,9 @@ class ProfileViewController: UIViewController {
             exitViewController.view.layer.masksToBounds = true
             
             if let sheet = exitViewController.sheetPresentationController {
-                sheet.detents = [.medium()]
+                sheet.detents = [
+                    .custom { _ in 303}
+                    ]
                 sheet.prefersGrabberVisible = true
             }
             
